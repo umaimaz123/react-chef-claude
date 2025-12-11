@@ -3,7 +3,8 @@ import Main from "./components/Main"
 import React from "react" 
 
 export default function App() {
-  const [count, setCount] = React.useState(0)
+  // ********* Commented out counter code **********
+  // const [count, setCount] = React.useState(0)
     
      {/* 
      * Note: if you ever need the old value of state
@@ -29,26 +30,27 @@ export default function App() {
      * 
      * */}
      
-    function add() {
-        setCount(prevCount=> prevCount + 1)
-    }
+    // function add() {
+    //   setCount(prevCount=> prevCount + 1)
+    // }
 
-    function subtract() {
-        setCount(count - 1)
-    }
+    // function subtract() {
+    //   setCount(count - 1)
+    // }
 
   return (
     <>  
       <Header />
       <Main />
-      <main className="container">
-            <h1>How many times will Bob say "state" in this section?</h1>
-            <div className="counter">
-                <button className="minus" onClick={subtract} aria-label="Decrease count">–</button>
-                <h2 className="count">{count}</h2>
-                <button className="plus" onClick={add} aria-label="Increase count">+</button>
-            </div>
-        </main>
+
+      {/* <main className="container">
+        <h1>How many times will Bob say "state" in this section?</h1>
+        <div className="counter">
+          <button className="minus" onClick={subtract} aria-label="Decrease count">–</button>
+          <h2 className="count">{count}</h2>
+          <button className="plus" onClick={add} aria-label="Increase count">+</button>
+        </div>
+      </main> */}
     </>
   )
 }
