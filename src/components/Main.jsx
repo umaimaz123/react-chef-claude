@@ -7,20 +7,16 @@ export default function Main() {
     <li key={ingredient}>{ingredient}</li> // added key prop, and map all the way to return list of ingredients
   ))
 
-  function handleOnSubmit(event) {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
+  function handleOnSubmit(formData) {
     const newIngredient = formData.get("ingredient")
     
     // ingredients.push(newIngredient) // Adding new ingredient to the existing array like this is not recommended in React
-    console.log(ingredients) // log updated ingredients array
-
     setIngredients(prevIngredients => [...prevIngredients, newIngredient]) // update state with new array including the new ingredient
   }
     
   return (
       <main>
-        <form onSubmit={handleOnSubmit} className="add-ingredient-form">
+        <form action={handleOnSubmit} className="add-ingredient-form">
           <input 
             type="text" 
             aria-label="Add ingredient" 
