@@ -1,17 +1,22 @@
-export default function Main() {
-  const ingredients = ["Chicken", "Oregano", "Tomatoes"]
-    
-    const ingredientsListItems = ingredients.map(ingredient => (
-      <li key={ingredient}>{ingredient}</li> // added key prop, and map all the way to return list of ingredients
-    ))
+import React from "react" 
 
-    function handleOnSubmit(event) {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
-        const newIngredient = formData.get("ingredient")
-        ingredients.push(newIngredient) // added new ingredient to the array
-        console.log(ingredients) // log updated ingredients array
-    }
+export default function Main() {
+  const [ingredients, setIngredients] = React.useState(["Chicken", "Oregano", "Tomatoes"])
+    
+  const ingredientsListItems = ingredients.map(ingredient => (
+    <li key={ingredient}>{ingredient}</li> // added key prop, and map all the way to return list of ingredients
+  ))
+
+  function handleOnSubmit(event) {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const newIngredient = formData.get("ingredient")
+    
+    // ingredients.push(newIngredient) // Adding new ingredient to the existing array like this is not recommended in React
+    console.log(ingredients) // log updated ingredients array
+
+    setIngredients(prevIngredients => [...prevIngredients, newIngredient]) // update state with new array including the new ingredient
+  }
     
   return (
       <main>
