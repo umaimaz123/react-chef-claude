@@ -2,16 +2,16 @@
 import pads from "./pads"
 import React from "react"
 import "./soundPad.css"
+import Pad from "./components/Pad.jsx"
 
 export default function SoundApp(props) {
   const [soundPads, setSoundPads] = React.useState(pads)
 
-  const styles = {
-    backgroundColor: props.darkMode ? "#222222" : "#cccccc",
-  }
-  
   const soundPadButtons = soundPads.map(pad => (
-      <button style={styles} key={pad.id}></button>
+      <Pad key={pad.id}
+        color={pad.color}
+      />
+     
   ))
   
   return (
