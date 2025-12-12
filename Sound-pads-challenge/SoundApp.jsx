@@ -10,6 +10,7 @@ export default function SoundApp(props) {
   const soundPadButtons = soundPads.map(pad => (
       <Pad key={pad.id}
         color={pad.color}
+        on={pad.on}
       />
      
   ))
