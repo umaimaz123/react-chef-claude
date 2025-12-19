@@ -1,17 +1,10 @@
-import React from "react"
-
 export default function Pad(props) {
-  const [on, setOn] = React.useState(props.on)
-   
-  function toggleOnOff(){
-    setOn(prevOn => !prevOn)
-  }
-
+  console.log(props)
   return ( 
     <button 
-      onClick={toggleOnOff}
+      onClick={() => props.toggleOnOff(props.id)}
       style={{backgroundColor: props.color}}
-      className= {on ? "on" : ""}
+      className= {props.on ? "on" : ""}
     ></button> 
   )
 }
